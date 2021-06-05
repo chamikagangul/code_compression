@@ -515,23 +515,24 @@ void compress()
             // {
             //     break;
             // }
-            if (instructions[i - 1] == instructions[i])
+            if (instructions[i - 1] == instructions[i] and RLEcount < 7)
             {
-                if (RLEcount < 7)
-                {
-                    RLEcount++;
-                    compressed = "same";
-                }
-                else
-                {
-                    if (RLEcount > -1)
-                    {
-                        compressed = "001" + std::bitset<3>(RLEcount).to_string();
-                        // print("==== overflow ====");
-                        save(compressed);
-                    }
-                    RLEcount = 0;
-                }
+                RLEcount++;
+                // if (RLEcount < 7)
+                // {
+                //     RLEcount++;
+                //     compressed = "same";
+                // }
+                // else
+                // {
+                //     if (RLEcount > -1)
+                //     {
+                //         compressed = "001" + std::bitset<3>(RLEcount).to_string();
+                //         // print("==== overflow ====");
+                //         save(compressed);
+                //     }
+                //     RLEcount = 0;
+                // }
             }
             else
             {
